@@ -1,0 +1,37 @@
+package com.ismailhakkiaydin.tablayout.adapters;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CustomTabAdapter extends FragmentStatePagerAdapter {
+
+    List<Fragment> fragmentListesi=new ArrayList<>();
+    List<String> tabBaslikListesi=new ArrayList<>();
+
+
+    public CustomTabAdapter(FragmentManager fm, List<Fragment> fraList, List<String> baslikList) {
+        super(fm);
+
+        this.fragmentListesi=fraList;
+        this.tabBaslikListesi=baslikList;
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        return fragmentListesi.get(position);
+    }
+
+    @Override
+    public int getCount() {
+        return fragmentListesi.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return tabBaslikListesi.get(position);
+    }
+}
